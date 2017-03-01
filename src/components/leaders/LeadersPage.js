@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
+import {Link, IndexLink} from 'react-router';
 import {bindActionCreators} from 'redux';
 import * as leaderActions from '../../actions/leaderActions';
 import LeaderList from './LeaderList';
@@ -25,6 +26,7 @@ class LeadersPage extends React.Component {
     return (
       <div>
         <h1>Leaders</h1>
+        <IndexLink to="/leader" activeClassName="active">+ leader</IndexLink>
         <LeaderList leaders={leaders}/>
        </div>
     );
@@ -37,7 +39,7 @@ LeadersPage.propTypes = {
 };
 
 function mapStateToProps(state, ownProps) {
-    debugger;
+  
   return {
     leaders: state.leaders
   };

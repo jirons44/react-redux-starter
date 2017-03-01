@@ -18,6 +18,7 @@ class ManageLeaderPage extends React.Component {
 
     updateLeaderState(event) {
         const field = event.target.name;
+        console.log("html field");
         let leader = this.state.leader;
         leader[field] = event.target.value;
         return this.setState({leader: leader});
@@ -46,7 +47,7 @@ function mapStateToProps(state, ownProps) {
         id: "",
         ntId: "",
         name: "",
-        role: "",
+        role: "FSC",
         startEffectiveDate: "",
         endEffectiveDate: "",
         agentCount: "",
@@ -59,7 +60,7 @@ function mapStateToProps(state, ownProps) {
     const rolesFormattedForDropdown = state.roles.map(role => {
         return {
             value: role.typeCode,
-            text: role.typeCode
+            text: role.typeCode + "-" + role.typeDescription
         };
     });
 

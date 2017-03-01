@@ -24,11 +24,11 @@ const LeaderForm = ({leader, allRoles, onSave, onChange, loading, errors}) => {
             <SelectInput
                 name="role"
                 label="Role"
-                onchange={onChange}
-                defaultOption="Select Role"
                 value={leader.role}
-                error={errors.role}
-                options={allRoles}/>
+                defaultOption="Select Role..."
+                options={allRoles}
+                onchange={onChange}
+                error={errors.typeCode}/>
 
             <TextInput
                 name="startEffectiveDate"
@@ -56,7 +56,7 @@ const LeaderForm = ({leader, allRoles, onSave, onChange, loading, errors}) => {
 
 LeaderForm.propTypes = {
     leader: PropTypes.object.isRequired,
-    allRoles: PropTypes.array.isRequired,
+    allRoles: PropTypes.array,
     onSave: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired,
     loading: PropTypes.bool,

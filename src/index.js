@@ -6,7 +6,7 @@ import {Provider} from 'react-redux';
 import {Router, browserHistory} from 'react-router';
 import routes from './routes';
 import {loadLeaders} from './actions/leaderActions';
-import {loadRoles} from './actions/roleActions';
+import {loadRoles} from   './actions/roleActions';
 import './styles/styles.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
