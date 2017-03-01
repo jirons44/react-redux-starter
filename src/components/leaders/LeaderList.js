@@ -3,7 +3,7 @@ import LeaderListRow from './LeaderListRow';
 
 const LeaderList = ({leaders}) => {
     return (
-        <table className="table">
+        <table className="table  table-striped">
             <thead>
                 <tr>
                     <th>Network Id</th>

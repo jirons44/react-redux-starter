@@ -16,8 +16,8 @@ const LeaderListRow = ({leader}) => {
     );
 };
 
-LeaderListRow.PropTypes = {
-    leader: PropTypes.array.isRequired
+LeaderListRow.propTypes = {
+    leader: PropTypes.object.isRequired
 };
 
 export default LeaderListRow;

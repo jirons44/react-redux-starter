@@ -5,14 +5,14 @@
 import * as types from '../actions/actionTypes';
 import initialState from './initialState';
 
-export default function leaderReducer(state = initialState.leaders, action) {
+export default function roleReducer(state = initialState.roles, action) {
 
-  switch(action.type) {
+    switch(action.type) {
 
-    case types.LOAD_LEADERS_SUCCESS:
-      return action.leaders;
+        case types.LOAD_ROLES_SUCCESS:
+            return action.roles;
 
-    default:
-      return state;
-  }
+        default:
+            return state;
+    }
 }

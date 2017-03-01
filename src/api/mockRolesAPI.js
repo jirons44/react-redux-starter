@@ -14,7 +14,6 @@ const roles = [
         typeCode: 'NAL',
         typeDescription: 'New Agent Leader'
     }
-
 ];
 
 

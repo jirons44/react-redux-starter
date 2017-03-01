@@ -13,8 +13,8 @@ const Header = () => {
         {" | "}
         <Link to="/about" activeClassName="active">About</Link>
       </nav>
-      <div className="jumbotron">
-        <h1>Leader to Agent alignment tool</h1>
+      <div className="page-header">
+        <h1>Allstate Hierarchy and Alignment Builder</h1>
     </div>
     </div>
 

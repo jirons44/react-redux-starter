@@ -37,6 +37,7 @@ LeadersPage.propTypes = {
 };
 
 function mapStateToProps(state, ownProps) {
+    debugger;
   return {
     leaders: state.leaders
   };
