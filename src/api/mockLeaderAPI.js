@@ -1,4 +1,6 @@
+import randomID from 'random-id';
 import delay from './delay';
+
 
 // This file mocks a web API by working with the hard-coded data below.
 // It uses setTimeout to simulate the delay of an AJAX call.
@@ -73,7 +75,8 @@ function replaceAll(str, find, replace) {
 
 //This would be performed on the server in a real app. Just stubbing in.
 const generateId = (leader) => {
-    return replaceAll(leader.name, ' ', '-');
+    // return replaceAll(leader.name, ' ', '-');
+    return randomID(15, 0);
 };
 
 class LeaderApi {
@@ -102,9 +105,13 @@ class LeaderApi {
                     //Just simulating creation here.
                     //The server would generate ids and watchHref's for new leaders in a real app.
                     //Cloning so copy returned is passed by value rather than by reference.
+                    console.log("leader=" + JSON.stringify(leader));
                     leader.id = generateId(leader);
-                    leader.watchHref = `http://localhost:3000/leadergroup/${leader.id}`;
+                    console.log("new leader is = " + leader.id);
+                    leader.showDetailsHref = `http://localhost:3000/leadergroup/${leader.id}`;
+
                     leaders.push(leader);
+                    console.log("leaders=" + JSON.stringify(leaders));
                 }
 
                 resolve(leader);

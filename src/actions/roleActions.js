@@ -12,9 +12,9 @@ export function loadRoles() {
     return dispatch => {
         return roleApi.getAllRoles()
             .then(roles => {
-                console.log("*****ROLES***************");
+                console.log("*****ROLES - loadRoles***************");
                 console.log(roles);
-                console.log("*****ROLES***************");
+                console.log("*****ROLES - loadRoles***************");
 
                 dispatch(loadRolesSuccess(roles));
             })

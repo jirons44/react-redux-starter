@@ -18,11 +18,15 @@ export function createLeaderSuccess(leader) {
 
 export function loadLeaders() {
     return function(dispatch) {
-      //  getAllLeaders returns a promise
+        //  getAllLeaders returns a promise
       return leaderApi.getAllLeaders()
           .then(leaders => {
 
-            dispatch(loadLeadersSuccess(leaders));
+              console.log("*****LEADERS - loadLeaders***************");
+              console.log(leaders);
+              console.log("*****LEADERS - loadLeaders***************");
+
+              dispatch(loadLeadersSuccess(leaders));
 
           })
           .catch(error => {
@@ -40,7 +44,7 @@ export function saveLeader(leader) {
             .then(savedLeader => {
                 leader.id ? dispatch(updateLeaderSuccess(savedLeader))
                           :
-                            dispatch(createLeaderSuccess(savedLeader))
+                            dispatch(createLeaderSuccess(savedLeader));
 
             })
             .catch(error => {

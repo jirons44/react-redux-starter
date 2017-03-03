@@ -1,6 +1,6 @@
-import React, {PropTypes} from 'react';
-import {connect} from 'react-redux';
-import {Link, IndexLink} from 'react-router';
+import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { Link, IndexLink } from 'react-router';
 import {bindActionCreators} from 'redux';
 import * as leaderActions from '../../actions/leaderActions';
 import LeaderList from './LeaderList';

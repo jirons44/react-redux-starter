@@ -24,7 +24,7 @@ const LeaderList = ({leaders}) => {
     );
 };
 
-LeaderList.PropTypes = {
+LeaderList.propTypes = {
     leaders: PropTypes.array.isRequired
 };
 

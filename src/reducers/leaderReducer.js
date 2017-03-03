@@ -12,6 +12,21 @@ export default function leaderReducer(state = initialState.leaders, action) {
     case types.LOAD_LEADERS_SUCCESS:
       return action.leaders;
 
+    case types.CREATE_LEADER_SUCCESS:
+        console.log(" reducer   case types.CREATE_LEADERS_SUCCESS:");
+      return [
+          ...state,
+          Object.assign({}, action.leader)
+      ];
+
+    case types.UPDATE_LEADER_SUCCESS:
+        console.log(" reducer   case types.CREATE_LEADERS_SUCCESS:");
+
+      return [
+          ...state.filter(leader => leader.id !== action.leader.id),
+          Object.assign({}, action.leader)
+      ];
+
     default:
       return state;
   }
