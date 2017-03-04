@@ -1,6 +1,8 @@
 // action creators
 import * as types from './actionTypes';
 import roleApi from '../api/mockRolesAPI';
+import { beginAjaxCall } from './ajaxStatusAction';
+
 
 
 export function loadRolesSuccess(roles) {
@@ -10,6 +12,7 @@ export function loadRolesSuccess(roles) {
 
 export function loadRoles() {
     return dispatch => {
+        dispatch(beginAjaxCall());
         return roleApi.getAllRoles()
             .then(roles => {
                 console.log("*****ROLES - loadRoles***************");

@@ -51,4 +51,4 @@ javascript library, so before going to production pick only the features you nee
 THEN (wait) till the service is done, before executing a dispatch (action) to be done so the 'components' can update itself. something like that.
 11. **MOCK API.** Contains various mocked API methods to simulate a call to the server.  Each mocked call will simulate a 1 second delay.
 Some mock methods are loadLeaders, loadRoles, saveLeaders.  LoadLeaders returns A list of leaders which is a hardcoded arrary of Leader objects.
-
+12. **toastr**  javascript library for non-blocking notifications.

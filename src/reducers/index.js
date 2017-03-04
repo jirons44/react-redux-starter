@@ -1,6 +1,7 @@
 import {combineReducers} from 'redux';
 import leaders from './leaderReducer';
 import roles from './roleReducer';
+import ajaxCallsInProgress from './ajaxStatusReducer';
 
 // this root reducer defines all the reducers we have in the app
 //
@@ -9,7 +10,8 @@ import roles from './roleReducer';
 
 const rootReducer = combineReducers({
    leaders,
-   roles
+   roles,
+   ajaxCallsInProgress
 });
 
 export default rootReducer;

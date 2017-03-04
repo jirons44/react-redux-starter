@@ -4,6 +4,7 @@
 
 import * as types from './actionTypes';
 import leaderApi from '../api/mockLeaderAPI';
+import { beginAjaxCall, ajaxCallError } from './ajaxStatusAction';
 
 
 export function loadLeadersSuccess(leaders) {
@@ -24,7 +25,10 @@ export function createLeaderSuccess(leader) {
 //   will recieve the action via mapStateToProps.
 
 export function loadLeaders() {
+
     return function(dispatch) {
+      dispatch(beginAjaxCall());
+
         //  getAllLeaders returns a promise
       return leaderApi.getAllLeaders()
           .then(leaders => {
@@ -46,7 +50,10 @@ export function loadLeaders() {
 
 export function saveLeader(leader) {
 
+
     return function(dispatch, getState) {
+        dispatch(beginAjaxCall());
+
         //  getAllLeaders returns a promise
         return leaderApi.saveLeader(leader)
 
@@ -58,7 +65,7 @@ export function saveLeader(leader) {
 
             })
             .catch(error => {
-
+                dispatch(ajaxCallError(error));
                 throw(error);
 
             });

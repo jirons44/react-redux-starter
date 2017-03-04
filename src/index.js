@@ -22,6 +22,7 @@ import { loadLeaders } from './actions/leaderActions';
 import { loadRoles } from   './actions/roleActions';
 import './styles/styles.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../node_modules/toastr/build/toastr.min.css';
 
 // instance of our store
 const store = configureStore();

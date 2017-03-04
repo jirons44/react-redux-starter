@@ -4,7 +4,7 @@ import LoadingDots from './LoadingDots';
 
 // stateless component
 
-const Header = () => {
+const Header = ({loading}) => {
   return (
     <div>
       <nav>
@@ -13,6 +13,7 @@ const Header = () => {
         <Link to="/leaders" activeClassName="active">Leaders</Link>
         {" | "}
         <Link to="/about" activeClassName="active">About</Link>
+          {loading && <LoadingDots interval={100} dots={20}/>}
       </nav>
       <div className="page-header">
         <h1>Allstate Hierarchy and Alignment Builder</h1>
@@ -20,6 +21,10 @@ const Header = () => {
     </div>
 
   );
+};
+
+Header.propTypes = {
+  loading: PropTypes.bool.isRequired
 };
 
 export default Header;
