@@ -9,7 +9,7 @@ This app was created while following a plural-site course 'react-redux'.  The ex
 1. **clone repository**
 2. **Install app**.  Run on command line```npm install```  Assumes you have installed NODE (which includes npm). this will install dependencies packages in package.json
 3. **launch app**.  run ```npm start -s``` from command line.  This will start the app, run eslint to check errors, and set up file watching.
-
+4. **test app**. run ```npm run test:watch``` to run tests and rerun when files changed.
 
 ##React Components:
 
@@ -52,3 +52,4 @@ THEN (wait) till the service is done, before executing a dispatch (action) to be
 11. **MOCK API.** Contains various mocked API methods to simulate a call to the server.  Each mocked call will simulate a 1 second delay.
 Some mock methods are loadLeaders, loadRoles, saveLeaders.  LoadLeaders returns A list of leaders which is a hardcoded arrary of Leader objects.
 12. **toastr**  javascript library for non-blocking notifications.
+13. **expect** Testing assertino library.   ' *** add chai assertion later..most popular?'

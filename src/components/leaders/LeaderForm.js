@@ -4,7 +4,7 @@ import SelectInput from '../common/SelectInput';
 
 // destruct all the props for this stateless component so it is easier to read
 const LeaderForm = ({leader, allRoles, onSave, onChange, saving, errors}) => {
-    console.log("LEADER FORM : " + JSON.stringify(leader));
+
     return (
 
         <form>
