@@ -38,6 +38,12 @@ LeadersPage.propTypes = {
   leaders: PropTypes.array.isRequired
 };
 
+/*
+   this function will be called anytime the redux store is updated
+   and returns the properties to our component
+   i.e. setting the state.leaders to this.props.leaders
+ */
+
 function mapStateToProps(state, ownProps) {
   
   return {
@@ -45,10 +51,30 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
+/*
+     what actions to expose/available in our component..executing an action..
+     i.e. like this.props.action.someAction(somePassedInThingIfNeeded);
+
+     --another way
+       return { someAction: leader => dispatch(leaderActions.someAction(leader)) }
+       then...to execute the action ...
+       this.props.someAction
+
+     -- below is a cleaner way..as it bundles\add up all the individual actions in the
+        leaderActions component ..to the object property actions.....so then you can execute the action...
+        this.props.actions.someAction  ( very readable pattern to place all actions
+        under the actions object in props this.props.actions )
+
+ */
+
 function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(leaderActions, dispatch)
   };
+
 }
+
+//  export leaderPage wrapped in a call to connect
+//   ...connect is a higher order component(its going to wrap our page)
 
 export default connect(mapStateToProps, mapDispatchToProps)(LeadersPage);

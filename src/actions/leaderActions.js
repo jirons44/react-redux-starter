@@ -1,4 +1,7 @@
 // action creators
+//  a requirement of an action is has a type property,
+// the rest can be anything you want
+
 import * as types from './actionTypes';
 import leaderApi from '../api/mockLeaderAPI';
 

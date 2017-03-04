@@ -78,6 +78,15 @@ ManageLeaderPage.contextTypes = {
     router: PropTypes.object
 };
 
+/*
+ this function will be called anytime the redux store is updated.
+
+ the results(function return) is plain object(s) which will be
+ merged into the components props.
+
+ see https://github.com/reactjs/react-redux/blob/master/docs/api.md#provider-store
+ */
+
 function mapStateToProps(state, ownProps) {
     //set empty course for now
     let leader={
@@ -104,7 +113,17 @@ function mapStateToProps(state, ownProps) {
         roles: rolesFormattedForDropdown
     };
 }
+/*
+    redux action creator.  action(s) merged into the components props.
+    in this case, all the 'actions' inside the 'leaderActoins.js' file
+    is accessible via this.props.actions.[actionName]
+    i.e. this.props.actions.saveLeader( leader ) can be called which ultimately
+         accespts the new leader, writes it to the database and then updates the store.
 
+    if you don't use the 'bindActionCreators' helper then 'dispatch is attached to props...
+         this.state.dispatch.xxxx  not as readible as  this.state.actions.xxxxx
+
+ */
 function mapDispatchToProps(dispatch) {
     return {
         actions: bindActionCreators(leaderActions, dispatch)
