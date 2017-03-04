@@ -1,10 +1,10 @@
 import React, {PropTypes} from 'react';
-import {Link} from 'react-router';
+import { Link } from 'react-router';
 
 const LeaderListRow = ({leader}) => {
     return (
         <tr>
-            <td>{leader.ntId}</td>
+            <td><Link to={'leader/' + leader.id}>{leader.ntId}</Link></td>
             <td>{leader.name}</td>
             <td>{leader.role}</td>
             <td>{leader.startEffectiveDate}</td>

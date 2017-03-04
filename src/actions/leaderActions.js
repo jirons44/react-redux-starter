@@ -45,10 +45,13 @@ export function loadLeaders() {
 }
 
 export function saveLeader(leader) {
+
     return function(dispatch, getState) {
         //  getAllLeaders returns a promise
         return leaderApi.saveLeader(leader)
+
             .then(savedLeader => {
+
                 leader.id ? dispatch(updateLeaderSuccess(savedLeader))
                           :
                             dispatch(createLeaderSuccess(savedLeader));

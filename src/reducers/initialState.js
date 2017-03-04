@@ -1,4 +1,6 @@
 export default {
+    currentProle: {},
     leaders: [],
-    roles: []
+    roles: [],
+    numAjaxCallsInProgress: 0
 };

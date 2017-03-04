@@ -26,7 +26,7 @@ class LeadersPage extends React.Component {
     return (
       <div>
         <h1>Leaders</h1>
-        <IndexLink to="/leader" activeClassName="active">+ leader</IndexLink>
+        <h4><IndexLink to="/leader" activeClassName="active">+ leader</IndexLink></h4>
         <LeaderList leaders={leaders}/>
        </div>
     );

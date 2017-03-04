@@ -19,6 +19,16 @@ class ManageLeaderPage extends React.Component {
         this.saveLeader        = this.saveLeader.bind(this);
     }
 
+    // REACT component lifecycle events
+    componentWillReceiveProps(nextProps) {
+        // called anytime props have changed or whenever REACT thinks so...
+        // existing leader loaded directly..i.e. hit refresh while on this page
+        // update the component state...
+        if (this.props.leader.id != nextProps.leader.id) {
+            this.setState({leader: Object.assign({}, nextProps.leader)});
+        }
+    }
+
     saveLeader(event) {
         event.preventDefault();
         // console.log("======>  save Leader event received in ManageLeaderPage");
@@ -78,8 +88,37 @@ ManageLeaderPage.contextTypes = {
     router: PropTypes.object
 };
 
+
+function getLeaderById(leaders, leaderId) {
+
+    if (leaderId) {
+        const leader = leaders.filter(leader => leader.id == leaderId);
+        if (leader) {
+            return leader[0]; // filter returns array, so get first.  id is unique.
+        }
+    }
+
+    return getEmptyLeader();
+}
+
+function getEmptyLeader() {
+    return {id: "", ntId: "", name: "", role: "",startEffectiveDate: "",endEffectiveDate: "",agentCount: "",showDetailsHref: ""};
+
+}
+
+function getRolesFormattedForDropdown(roles) {
+
+    return roles.map(role => {
+        return {
+            value: role.typeCode,
+            text: role.typeCode + "-" + role.typeDescription
+        };
+    });
+
+}
+
 /*
- this function will be called anytime the redux store is updated.
+ this function will be called anytime the redux store is updated and when ....
 
  the results(function return) is plain object(s) which will be
  merged into the components props.
@@ -88,31 +127,19 @@ ManageLeaderPage.contextTypes = {
  */
 
 function mapStateToProps(state, ownProps) {
-    //set empty course for now
-    let leader={
-        id: "",
-        ntId: "",
-        name: "",
-        role: "FSC",
-        startEffectiveDate: "",
-        endEffectiveDate: "",
-        agentCount: "",
-        showDetailsHref: ""
-    };
-    // debugger;
+    let leader = getEmptyLeader();
 
-    const rolesFormattedForDropdown = state.roles.map(role => {
-        return {
-            value: role.typeCode,
-            text: role.typeCode + "-" + role.typeDescription
-        };
-    });
+    if (state.leaders.length > 0) {
+        leader = getLeaderById(state.leaders, ownProps.params.id);
+    }
+    let roleOptions = getRolesFormattedForDropdown(state.roles)
 
     return {
         leader: leader,
-        roles: rolesFormattedForDropdown
+        roles: roleOptions
     };
 }
+
 /*
     redux action creator.  action(s) merged into the components props.
     in this case, all the 'actions' inside the 'leaderActoins.js' file
