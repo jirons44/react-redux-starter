@@ -18,6 +18,10 @@ export function createLeaderSuccess(leader) {
     return { type: types.CREATE_LEADER_SUCCESS, leader};
 }
 
+// async (thunk) call to our API.
+//   Handle the promise(return form API/server) and then dispatch the action when server/API is down.
+//   dispatch, then fires of the action, and then the reducer is called to update state and then components
+//   will recieve the action via mapStateToProps.
 
 export function loadLeaders() {
     return function(dispatch) {
